@@ -6,8 +6,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     rotateIcon.addEventListener('mousedown', (e) => {
         isDragging = true;
-        initialX = e.clientX;
-        initialY = e.clientY;
+        const rect = image.getBoundingClientRect();
+        initialX = rect.left + rect.width / 2;
+        initialY = rect.top + rect.height / 2;
         e.preventDefault();
     });
 

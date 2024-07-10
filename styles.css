@@ -15,7 +15,7 @@ body {
 #image {
     width: 300px;
     height: auto;
-    transition: transform 0.2s;
+    /* transition: transform 0.2s; */
 }
 
 .rotate-icon {

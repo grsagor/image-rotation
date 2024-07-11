@@ -70,3 +70,29 @@ function getDragAngle(event) {
 
     return angle - startAngle;
 }
+
+var element = $("#imageDIV"); 
+var getCanvas; 
+
+function captureImage() {
+    html2canvas(element[0], {
+        onrendered: function (canvas) {
+            $("#previewImage").empty().append(canvas);
+            getCanvas = canvas;
+        }
+    });
+}
+
+$(document).ready(function () {
+    captureImage(); 
+});
+
+$("#download").on('click', function () {
+    captureImage(); 
+
+    setTimeout(function() { 
+        var imageData = getCanvas.toDataURL("image/png");
+        var newData = imageData.replace(/^data:image\/png/, "data:application/octet-stream");
+        $("#final").attr("download", "image.png").attr("href", newData)[0].click();
+    }, 1000); 
+});

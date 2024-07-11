@@ -11,14 +11,21 @@
     <!-- <div class="resizable">
         <p> Resize from any edge or corner </p>
     </div> -->
-
-    <div class="box resizable">
-        <img src="/img.jpg" alt="">
-        <div class="rotation-handle">&circlearrowright;</div>
+    <div id="imageDIV">
+        <div class="box resizable">
+            <img src="/img.jpg" alt="">
+            <div class="rotation-handle">&circlearrowright;</div>
+        </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+    <div id="previewImage"></div>
 
+    <button id="download">Download</button>
+    <a id="final">Final</a>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
     <script src="script.js"></script>
 </body>
 

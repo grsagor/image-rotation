@@ -1,7 +1,14 @@
+#imageDIV{
+  height: 200px;
+  width: 200px;
+  background-color: red;
+}
+#previewImage {
+  display: none;
+}
 .resizable {
   width: 120px;
   border-radius: 0.75rem;
-  padding: 20px;
   margin: 1rem;
   background-color: #29e;
   color: white;

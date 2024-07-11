@@ -71,28 +71,40 @@ function getDragAngle(event) {
     return angle - startAngle;
 }
 
-var element = $("#imageDIV"); 
-var getCanvas; 
+// var element = $("#imageDIV"); 
+// var getCanvas; 
 
-function captureImage() {
-    html2canvas(element[0], {
-        onrendered: function (canvas) {
-            $("#previewImage").empty().append(canvas);
-            getCanvas = canvas;
-        }
+// function captureImage() {
+//     html2canvas(element[0], {
+//         onrendered: function (canvas) {
+//             $("#previewImage").empty().append(canvas);
+//             getCanvas = canvas;
+//         }
+//     });
+// }
+
+// // $(document).ready(function () {
+// //     captureImage(); 
+// // });
+
+// $("#download").on('click', function () {
+//     captureImage(); 
+
+//     setTimeout(function() { 
+//         var imageData = getCanvas.toDataURL("image/png");
+//         var newData = imageData.replace(/^data:image\/png/, "data:application/octet-stream");
+//         $("#final").attr("download", "image.png").attr("href", newData)[0].click();
+//     }, 1000); 
+// });
+
+function downloadImage() {
+    var container = document.getElementById('imageDIV');
+    html2canvas(container).then(function (canvas) {
+        var link = document.createElement('a');
+        link.href = canvas.toDataURL('image/png');
+        link.download = 'rotated-image.png';
+        link.click();
     });
 }
 
-$(document).ready(function () {
-    captureImage(); 
-});
-
-$("#download").on('click', function () {
-    captureImage(); 
-
-    setTimeout(function() { 
-        var imageData = getCanvas.toDataURL("image/png");
-        var newData = imageData.replace(/^data:image\/png/, "data:application/octet-stream");
-        $("#final").attr("download", "image.png").attr("href", newData)[0].click();
-    }, 1000); 
-});
+document.getElementById('download').addEventListener('click', downloadImage);
